@@ -100,4 +100,12 @@ public class Biblioteka {
         }
         kartaBibliotecznaMap.remove(kartaBibliotecznaId);
     }
+
+    public void usunKsiazke(long ksiazkaId) {
+        Ksiazka ksiazka = ksiazka(ksiazkaId);
+        if (ksiazka.isWypozyczona()) {
+            throw new ForbiddenException();
+        }
+        ksiazkaMap.remove(ksiazkaId);
+    }
 }
